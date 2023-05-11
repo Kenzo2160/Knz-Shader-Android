@@ -84,11 +84,11 @@ const vec4 LF13COLOR = vec4(1.0, 1.0, 1.0, 0.1);
 
  
 float A = 0.2;
-float B = 0.50;
+float B = 0.56;
 float C = 0.10 ;
-float D = 0.20;
+float D = 0.24;
 float E = 0.02;
-float F = 0.30;
+float F = 0.32;
 float W = 13.134;
  
 vec3 uncharted2Tonemap(vec3 x) {

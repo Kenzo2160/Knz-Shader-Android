@@ -54,13 +54,13 @@ float shadowMapping(vec4 worldPosition, float dist) {
     shadowposition /= shadowposition.w;
     shadowposition = shadowposition * 0.5 + 0.5;
    
-    float shadowSamplesRadius = 0.001;
+    float shadowSamplesRadius = 0.0001;
 
     for(float i = 1.0; i <= ShadowSamples; i += 1.0)
     {
         vec2 sampleCoord = rand2d(shadowposition.xy * i) - 0.5;
         float shadowDepth = texture2D(shadow, shadowposition.st + sampleCoord * shadowSamplesRadius).z;
-        if(shadowDepth + 0.0003 < shadowposition.z ){
+        if(shadowDepth + 0.00003 < shadowposition.z ){
             shade += 1.0;
         }
     }
