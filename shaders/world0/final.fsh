@@ -2,13 +2,13 @@
 
 #define INFO
 #define Red 1.5 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
-#define Green 1.2 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
-#define Blue 1.1 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
+#define Green 1.3 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
+#define Blue 1.2 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
 #define Brightness 1.0 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
 //#define Bloom
-#define BloomQuality 1.0 //[1.0 2.0 3.0 4.0]
+#define BloomQuality 3.0 //[1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
 //#define ChromaticAberration
-#define ChromaticAberrationQuality 1.0 //[1.0 2.0 4.0 8.0]
+#define ChromaticAberrationQuality 3.0 //[1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
 #define Lensflare
 
 #define MANHATTAN_DISTANCE(DELTA) abs(DELTA.x)+abs(DELTA.y)
@@ -20,16 +20,16 @@
                     COLOR += LFCOLOR.rgb * LFCOLOR.a * smoothstep(0.0, LFSIZE, d) * sunVisibility;\
                 } }
  
-#define LF1SIZE 0.4
-#define LF2SIZE 0.6
-#define LF3SIZE 0.5
+#define LF1SIZE 0.6
+#define LF2SIZE 0.7
+#define LF3SIZE 0.6
 #define LF4SIZE 0.7
-#define LF5SIZE 0.4
-#define LF6SIZE 0.5
+#define LF5SIZE 0.5
+#define LF6SIZE 0.6
 #define LF7SIZE 0.02
 #define LF8SIZE 0.01
 #define LF9SIZE 0.03
-#define LF10SIZE 0.05
+#define LF10SIZE 0.06
 #define LF11SIZE 0.01
 #define LF12SIZE 0.1
 #define LF13SIZE 0.1
@@ -84,11 +84,11 @@ const vec4 LF13COLOR = vec4(1.0, 1.0, 1.0, 0.1);
 
  
 float A = 0.2;
-float B = 0.56;
+float B = 0.50;
 float C = 0.10 ;
-float D = 0.24;
+float D = 0.20;
 float E = 0.02;
-float F = 0.32;
+float F = 0.30;
 float W = 13.134;
  
 vec3 uncharted2Tonemap(vec3 x) {
@@ -131,7 +131,7 @@ vec2 rand2d(highp  vec2 coord)
 vec3 bloom()
 {
     float bloomSteps = 4.0;
-    float bloomRadius = 0.02;
+    float bloomRadius = 0.03;
     float bloomThreshold = 1.0;
     float bloomIntancity = 1.0;
 

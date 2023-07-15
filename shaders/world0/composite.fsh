@@ -2,7 +2,8 @@
 
 #define SHADOW_MAP_BIAS 0.85
 #define ShadowMapping
-#define ShadowSamples 4.0 //[1.0 2.0 4.0 8.0 16.0 32.0 64.0]
+#define ShadowQuality 2048.0 //[512.0 1024.0 2048.0 4096.0]
+#define ShadowSamples 16.0 //[1.0 2.0 4.0 8.0 16.0 32.0 64.0]
 uniform sampler2D gcolor;
 uniform sampler2D gnormal;
 uniform sampler2D shadow;
@@ -27,7 +28,7 @@ const int gnormalFormat = RG16;
 const int RGBA16       = 1;
 const int gcolorFormat = RGBA16;
 const float  sunPathRotation	= -40.0f;
-const int shadowMapResolution = 2048; //[256 512 1024 2048]
+const int shadowMapResolution = 4096; //[256 512 1024 2048 4096]
 const int noiseTextureResolution = 256;
 
 float rand(highp vec2 coord){
@@ -52,15 +53,15 @@ float shadowMapping(vec4 worldPosition, float dist) {
     float distortFactor = (1.0 - SHADOW_MAP_BIAS) + distb * SHADOW_MAP_BIAS;
     shadowposition.xy /= distortFactor;
     shadowposition /= shadowposition.w;
-    shadowposition = shadowposition * 0.5 + 0.5;
+    shadowposition = shadowposition * 0.499 + 0.499;
    
-    float shadowSamplesRadius = 0.003;
+    float shadowSamplesRadius = 0.001;
 
     for(float i = 1.0; i <= ShadowSamples; i += 1.0)
     {
         vec2 sampleCoord = rand2d(shadowposition.xy * i) - 0.5;
         float shadowDepth = texture2D(shadow, shadowposition.st + sampleCoord * shadowSamplesRadius).z;
-        if(shadowDepth + 0.002 < shadowposition.z ){
+        if(shadowDepth + 0.001 < shadowposition.z ){
             shade += 1.0;
         }
     }
