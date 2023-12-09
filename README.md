@@ -1,3 +1,5 @@
 # Knz-Shaders
-Shaders that only support mobiles Awesome shadows And Reflections
+This Shaders Contain From Open4ES Shaders
+
+Better Performance And Awesome Shaders Made By Kenzo
 
