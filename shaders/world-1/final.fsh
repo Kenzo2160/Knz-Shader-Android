@@ -1,14 +1,14 @@
 #version 120
 
 #define INFO
-#define Red 1.5 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
-#define Green 1.2 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
-#define Blue 1.1 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
+#define Red 1.7 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
+#define Green 1.5 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
+#define Blue 1.2 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
 #define Brightness 1.0 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0]
-//#define Bloom
-#define BloomQuality 1.0 //[1.0 2.0 3.0 4.0]
-//#define ChromaticAberration
-#define ChromaticAberrationQuality 1.0 //[1.0 2.0 4.0 8.0]
+#define Bloom
+#define BloomQuality 2.0 //[1.0 2.0 4.0 8.0]
+#define ChromaticAberration
+#define ChromaticAberrationQuality 1.0 //[1.0 2.0 4.0 8.0 16.0]
 #define Lensflare
 
 #define MANHATTAN_DISTANCE(DELTA) abs(DELTA.x)+abs(DELTA.y)
@@ -83,13 +83,13 @@ const vec4 LF12COLOR = vec4(1.3, 1.0, 1.0, 0.4);
 const vec4 LF13COLOR = vec4(1.0, 1.0, 1.0, 0.1);
 
  
-float A = 0.2;
-float B = 0.50;
-float C = 0.10 ;
-float D = 0.20;
-float E = 0.02;
-float F = 0.30;
-float W = 13.134;
+float A = 0.03;
+float B = 0.15;
+float C = 0.01;
+float D = 0.23;
+float E = 0.005;
+float F = 0.20;
+float W = 12.134;
  
 vec3 uncharted2Tonemap(vec3 x) {
     return ((x*(A*x+C*B)+D*E)/(x*(A*x+B)+D*F))-E/F;
@@ -130,10 +130,10 @@ vec2 rand2d(highp  vec2 coord)
 
 vec3 bloom()
 {
-    float bloomSteps = 4.0;
-    float bloomRadius = 0.02;
-    float bloomThreshold = 1.0;
-    float bloomIntancity = 1.0;
+    float bloomSteps = 1.0;
+    float bloomRadius = 0.007;
+    float bloomThreshold = 0.9;
+    float bloomIntancity = 0.9;
 
     vec4 bloomTexture = vec4(0.0);
 
@@ -150,7 +150,7 @@ vec3 bloom()
     bloomTexture /= totalSteps;
 
 
-    float brightness = (bloomTexture.r + bloomTexture.g + bloomTexture.b) / 3.0;
+    float brightness = (bloomTexture.r + bloomTexture.g + bloomTexture.b) / 2.5;
     brightness = pow(brightness, bloomThreshold);
     bloomTexture *= bloomIntancity * brightness;
 
@@ -159,8 +159,8 @@ vec3 bloom()
 
 vec3 chromaticAberration()
 {
-    float distortion = 0.1;
-    float edge = 4.0;
+    float distortion = 0.05;
+    float edge = 2.0;
 
     float mask = length(texcoord.xy - 0.5);
     mask = pow(mask, edge);
