@@ -83,7 +83,7 @@ const vec4 LF12COLOR = vec4(1.3, 1.0, 1.0, 0.4);
 const vec4 LF13COLOR = vec4(1.0, 1.0, 1.0, 0.1);
 
  
-float A = 0.03;
+float A = 0.01;
 float B = 0.15;
 float C = 0.01;
 float D = 0.23;
